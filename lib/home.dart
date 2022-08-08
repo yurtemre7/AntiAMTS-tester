@@ -19,7 +19,7 @@ class _HomeState extends State<Home> {
   // dann neue seite
 
   testAMTSOn() async {
-    var res = await httpClient.testUrl('http://dnstest.sierra-dev.de/');
+    var res = await httpClient.testUrl('https://dnstest.sierra-dev.de/');
     await Future.delayed(2.seconds);
     if (res) {
       state.value = 2;
@@ -31,8 +31,8 @@ class _HomeState extends State<Home> {
 
   testUrls() async {
     isBlockedList.value = await Future.wait<bool>([
-      httpClient.testUrl('http://fecebook.com/'),
-      httpClient.testUrl('http://fecebook.com/'),
+      httpClient.testUrl('https://fecebook.com/'),
+      httpClient.testUrl('https://fecebook.com/'),
       // Future.value(false),
     ]);
 
