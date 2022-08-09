@@ -241,7 +241,7 @@ class _HomeState extends State<Home> {
                             ),
                           ),
                           Text(
-                            'Es ist ein Fehler aufgetreten',
+                            'Du hast den AntiAMTS Blocker nicht installiert.',
                             style: TextStyle(fontSize: 20),
                           ),
                         ],

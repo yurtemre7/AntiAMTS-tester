@@ -17,15 +17,20 @@ class HttpClient {
 
   Future<bool> isBlocked(String url) async {
     var response = await cget(url);
+    log(response.body);
 
-    // log(response.headers.toString());
+    log(response.headers.toString());
 
     var v = response.headers;
-    var blockedUrl = (v['set-cookie'] ?? '').split(';')[0].split('=')[1];
-    blockedUrl = Uri.decodeFull(blockedUrl);
-    log(blockedUrl);
-    log(url);
-    return url == blockedUrl;
+    try {
+      var blockedUrl = (v['set-cookie'] ?? '').split(';')[0].split('=')[1];
+      blockedUrl = Uri.decodeFull(blockedUrl);
+      log(blockedUrl);
+      log(url);
+      return url == blockedUrl;
+    } catch (e) {
+      return false;
+    }
   }
 
   Future<Response> cget(String url) {
