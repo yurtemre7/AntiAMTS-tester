@@ -29,14 +29,10 @@ class HttpClient {
   }
 
   Future<Response> cget(String url) {
-    return client.get(Uri.parse(url), headers: {
-      'Access-Control-Allow-Origin': '*',
-    });
+    return client.get(Uri.parse(url));
   }
 
   Future<Response> cpost(String url) {
-    return client.post(Uri.parse(url), headers: {
-      'Access-Control-Allow-Origin': '*',
-    });
+    return client.post(Uri.parse(url));
   }
 }
